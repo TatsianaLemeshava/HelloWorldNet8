@@ -36,8 +36,8 @@ jobs:
 
     - name: Build
       working-directory: ./
-    #  run: dotnet build ./DietPreparation.sln /p:Configuration=Release /p:Platform="Any CPU"
-      run: msbuild ./HelloWorld.sln /p:Configuration=Release /p:Platform="Any CPU"
+      run: dotnet build ./HelloWorld.sln /p:Configuration=Release /p:Platform="Any CPU"
+    # run: msbuild ./HelloWorld.sln /p:Configuration=Release /p:Platform="Any CPU"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
