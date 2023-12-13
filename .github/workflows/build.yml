@@ -1,0 +1,46 @@
+# This workflow will build a test project
+name: buildaction
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+env:
+    ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:       
+    - uses: actions/checkout@v3
+
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '{%'
+        tokenSuffix: '%}'
+        files: '["**/*.json", "**/*.cs", "**/*.xml"]'
+      env:
+       DBUSER: ${{secrets.DBUSER}}
+       DBPASSWORD: ${{secrets.DBPASSWORD}}
+       DBUserName: ${{secrets.DBUserName}}
+       DBPass:  ${{secrets.DBPass}}
+
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+
+    #- name: Restore
+    #  working-directory: ./src
+    #  run: dotnet restore
+
+    - name: Build
+      working-directory: ./
+    #  run: dotnet build ./DietPreparation.sln /p:Configuration=Release /p:Platform="Any CPU"
+      run: msbuild ./HelloWorld.sln /p:Configuration=Release /p:Platform="Any CPU"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: HelloWorld
+        path: ./
