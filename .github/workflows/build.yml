@@ -33,7 +33,11 @@ jobs:
     #- name: Restore
     #  working-directory: ./src
     #  run: dotnet restore
-
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '3.1.x'
+        
     - name: Build
       working-directory: ./
       run: dotnet build ./HelloWorld.sln /p:Configuration=Release /p:Platform="Any CPU"
