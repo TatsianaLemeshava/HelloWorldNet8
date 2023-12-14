@@ -1,5 +1,6 @@
 # This workflow will build a test project
 name: buildaction
+# image: mcr.microsoft.com/dotnet/runtime:8.0
 
 on:
   push:
@@ -36,7 +37,7 @@ jobs:
     - name: Setup dotnet
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '3.1.x'
+        dotnet-version: '8.x'
         
     - name: Build
       working-directory: ./
