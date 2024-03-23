@@ -1,0 +1,20 @@
+name: Common Workflow
+
+on:
+  workflow_call:
+    inputs:
+      version: # the variable you can use in place of a matrix
+        required: true
+        type: string
+
+jobs:
+  job1:
+    runs-on: windows-latest
+    steps:
+      - run: echo 'job1 version ${{ inputs.version }}'
+
+  job2:
+    runs-on: windows-latest
+    needs: job1
+    steps:
+      - run: echo 'job2 version ${{ inputs.version }}'
