@@ -10,8 +10,8 @@ jobs:
       # fail-fast is true by default
       fail-fast: false
       matrix:
-        version: [2019]
-    uses: ./.github/workflows/common-workflow.yml # calls the one above ^
+        version: [2019, 2022]
+    uses: ./.github/workflows/common_workflow.yml # calls the one above ^
     with:
       version: ${{ matrix.version }}
     secrets: inherit
