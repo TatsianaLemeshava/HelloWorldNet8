@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         version: [2019]
-    uses: .github/workflows/common-workflow.yml@v1 # calls the one above ^
+    uses: ./.github/workflows/common-workflow.yml # calls the one above ^
     with:
       version: ${{ matrix.version }}
     secrets: inherit
