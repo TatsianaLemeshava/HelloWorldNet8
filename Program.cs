@@ -19,9 +19,11 @@ class Solution
                 switch (whites[i][j])
                 {
                     case 'Q':
+                    {
                         whites[i][j] = '';
-                        if whites[i][j + 1] == '' then white[i][j + 1] = 'Q';
+                        if (whites[i][j + 1] == '') { white[i][j + 1] = 'Q';}
                         break;
+                    }
                     case 'N':
                     case 'B':
                     case 'R':
