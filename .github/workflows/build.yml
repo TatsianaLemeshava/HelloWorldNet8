@@ -70,5 +70,5 @@ jobs:
         path: ./
 
     - name: Print message
-      run: echo "$action_state"
+      run: echo "${{ action_state }}"
       
