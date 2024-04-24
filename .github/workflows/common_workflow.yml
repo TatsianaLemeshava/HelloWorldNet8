@@ -15,8 +15,7 @@ jobs:
 
     steps:
       - name: Print some info
-        run: echo "job1 My env variable ${{ env.my_env_var }}" |
-             echo 'job1 My env variable $my_env_var'
+        run: echo "job1 verasion ${{ inputs.version }}" 
 
   job2:
     runs-on: windows-latest
