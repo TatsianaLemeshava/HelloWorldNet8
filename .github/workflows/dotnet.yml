@@ -1,0 +1,13 @@
+name: Environment variable example
+
+on: workflow_dispatch
+
+jobs:
+  example:
+    runs-on: windows-latest
+    env:
+      MY_VARAIBLE: "Hello from Environment variable"
+    
+    steps:
+      - name: Display Environemnt variable
+        run: echo "My env variable - ${{ env.MY_VARIABLE }}"
