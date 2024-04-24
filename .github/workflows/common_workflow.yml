@@ -6,12 +6,17 @@ on:
       version: # the variable you can use in place of a matrix
         required: true
         type: string
-
+  
 jobs:
   job1:
     runs-on: windows-latest
+    env:
+       my_env_var: "Environment variable"    
+
     steps:
-      - run: echo 'job1 version ${{ inputs.version }}'
+      - name: Print some info
+        run: echo "job1 My env variable ${{ env.my_env_var }}" |
+             echo 'job1 My env variable $my_env_var'
 
   job2:
     runs-on: windows-latest
