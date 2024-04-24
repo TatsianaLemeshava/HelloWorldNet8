@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Display Environemnt variable
         run: echo "My env variable - ${{ env.MY_VARIABLE }}" |
-             echo "My env variable - $MY_VARIABLE"
+             echo "My env variable:$MY_VARIABLE"
